@@ -1,18 +1,19 @@
 import axios from "axios";
-import { AppData, Tokens } from "../global/types";
+import { AppData, Tokens, UserData } from "../global/types";
 import { getAccessToken, getRefreshToken, setTokens, updateToken } from "../global/helpers/jwtHelpers";
+
 export const BASE_URL = 'http://54.93.213.129/api/';
 
 export async function login(username: string, password: string) {
   try {
     const response = await axios.post(
-      BASE_URL + 'auth/jwt/create',
-      {username, password}
+      BASE_URL + 'auth/jwt/create/',
+      { username, password }
     );
 
     const tokens = response.data as Tokens;
     setTokens(username, tokens);
-  } catch(error) {
+  } catch (error) {
     console.log("LOGIN ERROR");
     // todo?
   }
@@ -43,10 +44,10 @@ authorizedRequests.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const refreshToken = getRefreshToken();
+        const refresh = getRefreshToken();
         const response = await axios.post(
-          BASE_URL + 'auth/jwt/refresh',
-          { refreshToken }
+          BASE_URL + 'auth/jwt/refresh/',
+          { refresh }
         );
         const { access } = response.data;
 
@@ -64,6 +65,49 @@ authorizedRequests.interceptors.response.use(
   }
 );
 
+export async function getUserData() {
+  return (await authorizedRequests.get('auth/users/me/')).data as UserData;
+}
+
 export async function getApps() {
-  return (await authorizedRequests.get('apps')).data as AppData[];
+  return (await authorizedRequests.get('apps/')).data as AppData[];
+}
+
+export async function getApp(appId: number) {
+  return (await authorizedRequests.get(`apps/${appId}/`)).data as AppData;
+}
+
+
+export async function getUsers() {
+  return (await authorizedRequests.get('auth/users/')).data as UserData[];
+}
+
+
+export async function addApp(
+  platform: string,
+  name: string,
+  description: string,
+  icon: string,
+) {
+  await authorizedRequests.post('apps/', { platform, name, description, icon });
+}
+
+export async function editApp(
+  appId: number,
+  newAppData: {
+    platform?: string,
+    name?: string,
+    description?: string,
+    icon?: string,
+  }
+) {
+  const data = { ...newAppData };
+  const keys = Object.keys(newAppData) as (keyof typeof newAppData)[];
+  for (const key of keys) {
+    if (data[key] === '' || data[key] === undefined) {
+      delete data[key];
+    }
+  }
+
+  await authorizedRequests.patch(`apps/${appId}/`, data);
 }
