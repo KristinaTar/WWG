@@ -30,7 +30,6 @@ const EditAppPage: React.FC = () => {
 
   return (
     <MainLayout>
-      AddAppPage
       {appData && <AppForm
           initialValues={{
             name: appData.name,

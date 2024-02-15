@@ -7,6 +7,7 @@ const Login: React.FC = () => {
 
   }
 
+  console.log(111)
   return (
     // <div>
     //   Login
@@ -18,7 +19,6 @@ const Login: React.FC = () => {
     // </div>
 
     <div>
-      Login
       <Formik
         initialValues={{
           name: '',
@@ -47,12 +47,12 @@ const Login: React.FC = () => {
           <Form onSubmit={handleSubmit}>
             <label>
               User Name <Field type="email" name="email"/>
-              <ErrorMessage name="email" component="div"/>
+              <ErrorMessage name="email" />
             </label>
             <label>
               Password
               <Field type="password" name="password"/>
-              <ErrorMessage name="password" component="div"/>
+              <ErrorMessage name="password" />
             </label>
             <button type="submit" disabled={isSubmitting}>
               Submit

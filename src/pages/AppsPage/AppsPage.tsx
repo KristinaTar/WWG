@@ -35,12 +35,16 @@ const AppsPage: React.FC = () => {
   return (
     <MainLayout>
       <AppsPageStyles>
-        AppsPage
-        <button
-          onClick={() => {
-            navigate('/add')
-          }}
-        >Create App</button>
+        <div className="top-layout">
+          <button
+            onClick={() => {
+              navigate('/add')
+            }}
+            className="btn create-btn"
+          >Create App
+          </button>
+          <div>Search</div>
+        </div>
         <div className="apps-table">
           <div className="apps-table-row apps-table-row--head">
             <div>Name App</div>
@@ -63,7 +67,7 @@ const AppsPage: React.FC = () => {
                   {users.find(user => user.id === app.author)?.username || ""}
                 </div>
                 <div>
-                  <img src={app.icon} width="50px" height="50px" alt={`${app.name} icon`}/>
+                  <img src={app.icon} width="40px" height="40px" alt={`${app.name} icon`}/>
                 </div>
                 <div>
                   {app.platform}

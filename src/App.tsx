@@ -5,16 +5,20 @@ import AppsPage from "./pages/AppsPage";
 import RequireAuth from "./components/RequireAuth";
 import AddAppPage from "./pages/AddAppPage";
 import EditAppPage from "./pages/EditAppPage";
+import { AppContainer } from "./global/styles/Global.styled";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<RequireAuth><AppsPage/></RequireAuth>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/add" element={<RequireAuth><AddAppPage/></RequireAuth>}/>
-      {/*todo ID*/}
-      <Route path="/edit/:appId" element={<RequireAuth><EditAppPage/></RequireAuth>}/>
-    </Routes>
+    <AppContainer>
+      <Routes>
+        <Route path="/" element={<RequireAuth><AppsPage/></RequireAuth>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/add" element={<RequireAuth><AddAppPage/></RequireAuth>}/>
+        {/*todo ID*/}
+        <Route path="/edit/:appId" element={<RequireAuth><EditAppPage/></RequireAuth>}/>
+      </Routes>
+    </AppContainer>
+
   );
 }
 
