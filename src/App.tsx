@@ -1,11 +1,15 @@
 import React from 'react';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import AppsPage from "./components/AppsPage";
+import RequireAuth from "./components/RequireAuth";
 
 function App() {
   return (
-    <div className="App">
-     TEST
-    </div>
+    <Routes>
+      <Route path="/" element={<RequireAuth><AppsPage/></RequireAuth>}/>
+      <Route path="/login" element={<Login/>}/>
+    </Routes>
   );
 }
 
