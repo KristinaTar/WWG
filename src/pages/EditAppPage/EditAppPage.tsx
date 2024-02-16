@@ -29,7 +29,7 @@ const EditAppPage: React.FC = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout title="Edit">
       {appData && <AppForm
           initialValues={{
             name: appData.name,

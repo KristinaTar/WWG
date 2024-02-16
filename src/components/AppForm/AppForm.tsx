@@ -1,14 +1,15 @@
 import React from 'react';
-import { ErrorMessage, Field, Formik } from "formik";
-import { PlatformType } from "../../global/types";
+import { Field, Formik } from "formik";
+import { InputStyle, PlatformType } from "../../global/types";
 import { useNavigate } from "react-router-dom";
 import { FormikErrors, FormikHelpers } from "formik/dist/types";
 import { convertImageToBase64 } from "../../global/helpers/formatData";
 import AppFormStyles from "./AppForm.styles";
 import Input from "../Input";
 import FileInput from "../FileInput";
+import FormSelect from "../FormSelect";
 
-type FormValues = {
+export type FormValues = {
   name: string,
   description: string,
   platform: PlatformType,
@@ -32,10 +33,9 @@ const AppForm: React.FC<Props> = (
   }
 ) => {
   const navigate = useNavigate();
-  console.log({create})
 
   return (
-    <AppFormStyles>
+    <AppFormStyles create={create}>
       <div className="form-title">{title || initialValues.name}</div>
       <Formik
         initialValues={initialValues}
@@ -64,6 +64,7 @@ const AppForm: React.FC<Props> = (
                   onBlur={handleBlur}
                   value={values.name}
                   clear={() => setFieldValue('name', '')}
+                  style={create ? InputStyle.light : InputStyle.dark}
                 />
               </div>
               <div>
@@ -75,16 +76,15 @@ const AppForm: React.FC<Props> = (
                   onBlur={handleBlur}
                   value={values.description}
                   clear={() => setFieldValue('description', '')}
+                  style={create ? InputStyle.light : InputStyle.dark}
                 />
               </div>
-              <div>
-                Platform
-                <Field as="select" name="platform">
-                  <option value={PlatformType.ios}>{PlatformType.ios}</option>
-                  <option value={PlatformType.android}>{PlatformType.android}</option>
-                </Field>
-                {errors.platform && touched.platform && errors.platform}
-              </div>
+              <FormSelect
+                name="platform"
+                label="Platform"
+                setValue={(value) => setFieldValue("platform", value)}
+                style={create ? InputStyle.light : InputStyle.dark}
+              />
               <div>
                 <Field
                   name="icon"
@@ -94,6 +94,7 @@ const AppForm: React.FC<Props> = (
                     if (!e.target.files) return;
                     const base64Icon = await convertImageToBase64(e.target.files[0]);
                     await setFieldValue('icon', base64Icon);
+                    console.log({values})
                   }}
                 />
               </div>

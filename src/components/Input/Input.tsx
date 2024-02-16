@@ -1,7 +1,10 @@
 import React from 'react';
+import { ErrorMessage } from "formik";
+
 import InputStyles from "./Input.styles";
 import CloseIcon from '../../global/images/close-icon.svg';
-import { ErrorMessage } from "formik";
+import CloseIconLight from '../../global/images/close-icon-light.svg';
+import { InputStyle } from "../../global/types";
 
 type Props = {
   name: string,
@@ -10,9 +13,19 @@ type Props = {
   onBlur: (e: React.FocusEvent<any>) => void,
   clear?: () => void,
   value: string,
+  style?: InputStyle,
 }
+
 const Input: React.FC<Props> = (
-  { name, label, onChange, onBlur, value, clear }
+  {
+    name,
+    label,
+    onChange,
+    onBlur,
+    value,
+    clear,
+    style = InputStyle.light
+  }
 ) => {
   return (
     <InputStyles>
@@ -20,7 +33,7 @@ const Input: React.FC<Props> = (
       <div className="input-container">
         <input
           placeholder="Enter Text"
-          className="custom-input"
+          className={`custom-input ${style === InputStyle.dark && 'custom-input--dark'}`}
           name={name}
           onChange={onChange}
           onBlur={onBlur}
@@ -29,7 +42,7 @@ const Input: React.FC<Props> = (
         {clear && <img
             className="clear-button"
             onClick={clear}
-            src={CloseIcon}
+            src={style === InputStyle.dark ? CloseIconLight : CloseIcon}
             alt="clear text"
         />}
         <div className="error-message"><ErrorMessage name={name} /></div>

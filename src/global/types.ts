@@ -26,3 +26,8 @@ export enum PlatformType {
   ios = 'IOS',
   android = 'Android',
 }
+
+export enum InputStyle {
+  light,
+  dark,
+}

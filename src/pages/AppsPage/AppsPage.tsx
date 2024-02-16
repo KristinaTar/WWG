@@ -50,8 +50,6 @@ const AppsPage: React.FC = () => {
             <input type="search" placeholder="Search App" className="search-input"/>
             <img src={SearchIcon} alt="search icon" className="search-icon"/>
           </div>
-
-
         </div>
         <div className="apps-table">
           <div className="apps-table-row apps-table-row--head">
@@ -60,9 +58,10 @@ const AppsPage: React.FC = () => {
             <div>Icon</div>
             <div className="platform-container">
              <div> Platform</div>
-              <img src={SortIcon} alt="sort icon"/>
+              <img className="sort-icon" src={SortIcon} alt="sort icon"/>
             </div>
             <div>Description</div>
+            <div>Time create</div>
           </div>
           {
             apps.map(app => (

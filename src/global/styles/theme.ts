@@ -3,7 +3,10 @@ export const theme = {
     stroke: "#DFE4F2",
     strokeActive: "#644DED",
     white: "#FFFFFF",
-    1: "#AD9FFF"
+    shadow: "#0000001A",
+    1: "#AD9FFF",
+    2: "#E0E6F9",
+    3: "#644DED",
   },
   text: {
     dark: "#242533",

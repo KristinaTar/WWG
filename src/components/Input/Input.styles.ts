@@ -38,6 +38,10 @@ const InputStyles = styled('label')`
     &:focus {
       border: 1px solid ${theme.colors.strokeActive};
     }
+    
+    &--dark {
+      background-color: ${theme.colors.stroke};
+    }
   }
 
   .clear-button {

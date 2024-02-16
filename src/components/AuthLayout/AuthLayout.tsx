@@ -8,7 +8,6 @@ type Props = {
 const AuthLayout: React.FC<Props> = ({ children }) => {
   return (
     <AuthLayoutStyles>
-      AuthLayout
       <div className="form_container">
         {children}
       </div>

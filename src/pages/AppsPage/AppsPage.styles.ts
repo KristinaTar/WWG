@@ -90,6 +90,12 @@ const AppsPageStyles = styled('div')`
     padding: 10px 36px 10px 36px;
   }
   
+  .sort-icon {
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+  
 `;
 
 export default AppsPageStyles;
