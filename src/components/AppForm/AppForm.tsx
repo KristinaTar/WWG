@@ -45,13 +45,11 @@ const AppForm: React.FC<Props> = (
         {({
             values,
             errors,
-            touched,
             handleChange,
             handleBlur,
             handleSubmit,
             isSubmitting,
             setFieldValue,
-            /* and other goodies */
           }) => (
           <form className="form-body" onSubmit={handleSubmit}>
             <div className="form-fields-container">
@@ -100,12 +98,12 @@ const AppForm: React.FC<Props> = (
               </div>
             </div>
             <div className="buttons-container">
-              <div
+              <button
                 className="cancel-btn"
                 onClick={() => navigate('/')}
               >
                 Cancel
-              </div>
+              </button>
               <button
                 type="submit"
                 disabled={isSubmitting || Object.keys(errors).length > 0}

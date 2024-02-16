@@ -34,19 +34,6 @@ const AppFormStyles = styled.div<{ create?: boolean; }>`
     }
   }
   
-  .cancel-btn {
-    font-weight: 700;
-    font-size: 14px;
-    color: ${theme.colors.strokeActive};
-    cursor: pointer;
-  }
-  
-  .save-btn {
-    padding: 10px 36px;
-    width: 105px;
-    min-height: 40px;
-  }
-  
   .buttons-container {
     display: flex;
     justify-content: flex-end;

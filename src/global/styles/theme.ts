@@ -22,7 +22,8 @@ export const theme = {
     primary: '#F9F9FC',
     1: '#EFEFF5',
     2: '#CECEEB',
-    3: "#644DED"
+    3: "#644DED",
+    4: "#4731cb",
   },
   gradients: {},
 };

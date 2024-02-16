@@ -5,18 +5,13 @@ import { getAccessToken, getRefreshToken, setTokens, updateToken } from "../glob
 export const BASE_URL = 'http://54.93.213.129/api/';
 
 export async function login(username: string, password: string) {
-  try {
-    const response = await axios.post(
-      BASE_URL + 'auth/jwt/create/',
-      { username, password }
-    );
+  const response = await axios.post(
+    BASE_URL + 'auth/jwt/create/',
+    { username, password }
+  );
 
-    const tokens = response.data as Tokens;
-    setTokens(username, tokens);
-  } catch (error) {
-    console.log("LOGIN ERROR");
-    // todo?
-  }
+  const tokens = response.data as Tokens;
+  setTokens(username, tokens);
 }
 
 const authorizedRequests = axios.create({

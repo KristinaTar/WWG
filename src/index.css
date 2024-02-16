@@ -5,7 +5,7 @@ html {
   padding: 0;
   outline: none;
   box-sizing: border-box;
-  font-family: 'Gilroy-Regular', sans-serif;
+  font-family: 'Gilroy', sans-serif;
 }
 
 body {
@@ -17,8 +17,71 @@ a {
 }
 
 @font-face {
-  font-family: "GilroyRegular";
-  src: local("GilroyRegular"),
-  url("fonts/Gilroy-Regular.ttf") format("opentype");
+  font-family: "Gilroy";
+  src: local("Gilroy ExtraBold"), local("Gilroy-Extrabold"), url("fonts/Gilroy-Extrabold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Heavy"), local("Gilroy-Heavy"), url("fonts/Gilroy-Heavy.ttf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy SemiBold"), local("Gilroy-Semibold"), url("fonts/Gilroy-Semibold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Light"), local("Gilroy-Light"), url("fonts/Gilroy-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Regular"), local("Gilroy-Regular"), url("fonts/Gilroy-Regular.ttf");
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Medium"), local("Gilroy-Medium"), url("fonts/Gilroy-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy UltraLight"), local("Gilroy-UltraLight"), url("fonts/Gilroy-UltraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Bold"), local("Gilroy-Bold"), url("fonts/Gilroy-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Thin"), local("Gilroy-Thin"), url("fonts/Gilroy-Thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Black"), local("Gilroy-Black"), url("fonts/Gilroy-Black.ttf");
+  font-weight: 900;
+  font-style: normal;
 }
