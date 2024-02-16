@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { FormikErrors, FormikHelpers } from "formik/dist/types";
 import { convertImageToBase64 } from "../../global/helpers/formatData";
 import AppFormStyles from "./AppForm.styles";
+import Input from "../Input";
+import FileInput from "../FileInput";
 
 type FormValues = {
   name: string,
@@ -45,23 +47,26 @@ const AppForm: React.FC<Props> = (
           }) => (
           <form className="form-body" onSubmit={handleSubmit}>
             <div>
-
-              Name
-              <input
+              <Field
                 name="name"
+                label="Name"
+                as={Input}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.name}
+                clear={() => setFieldValue('name', '')}
               />
               {errors.name && touched.name && errors.name}
             </div>
             <div>
-              Description
-              <input
+              <Field
                 name="description"
+                label="Description"
+                as={Input}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.description}
+                clear={() => setFieldValue('description', '')}
               />
               {errors.description && touched.description && errors.description}
             </div>
@@ -74,20 +79,34 @@ const AppForm: React.FC<Props> = (
               {errors.platform && touched.platform && errors.platform}
             </div>
             <div>
-              <input
-                type="file"
+              <Field
                 name="icon"
-                onChange={async (e) => {
+                label="Icon"
+                as={FileInput}
+                onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
                   if (!e.target.files) return;
                   const base64Icon = await convertImageToBase64(e.target.files[0]);
                   await setFieldValue('icon', base64Icon);
                 }}
               />
+              {/*<input*/}
+              {/*  type="file"*/}
+              {/*  name="icon"*/}
+              {/*  onChange={async (e) => {*/}
+              {/*    if (!e.target.files) return;*/}
+              {/*    const base64Icon = await convertImageToBase64(e.target.files[0]);*/}
+              {/*    await setFieldValue('icon', base64Icon);*/}
+              {/*  }}*/}
+              {/*/>*/}
               {errors.icon && touched.icon && errors.icon}
             </div>
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
+            <div className="btns-container">
+              <div className="cancel">Cancel</div>
+              <button type="submit" disabled={isSubmitting} className="btn save-btn">
+                Save
+              </button>
+            </div>
+
           </form>
         )}
       </Formik>

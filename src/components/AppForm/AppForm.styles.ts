@@ -27,6 +27,24 @@ const AppFormStyles = styled('div')`
     column-gap: 40px;
     row-gap: 28px;
   }
+  
+  .cancel {
+    font-weight: 700;
+    font-size: 14px;
+    color: ${theme.colors.strokeActive};
+  }
+  
+  .save-btn {
+    padding: 10px 36px;
+    width: 105px;
+  }
+  
+  .btns-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    
+  }
 
 `
 

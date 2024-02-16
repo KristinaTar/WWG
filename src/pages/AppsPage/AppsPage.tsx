@@ -5,6 +5,7 @@ import MainLayout from "../../components/MainLayout";
 import { AppData, UserData } from "../../global/types";
 import AppsPageStyles from "./AppsPage.styles";
 import { formatData } from "../../global/helpers/formatData";
+import SearchIcon from '../../global/images/SearchIcon.svg';
 
 const AppsPage: React.FC = () => {
   const [apps, setApps] = useState<AppData[]>([]);
@@ -43,7 +44,12 @@ const AppsPage: React.FC = () => {
             className="btn create-btn"
           >Create App
           </button>
-          <div>Search</div>
+          <div className="search-container">
+            <input type="search" placeholder="Search App" className="search-input"/>
+            <img src={SearchIcon} alt="search icon" className="search-icon"/>
+          </div>
+
+
         </div>
         <div className="apps-table">
           <div className="apps-table-row apps-table-row--head">

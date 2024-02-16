@@ -1,16 +1,10 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-
 import MainLayout from "../../components/MainLayout";
 import { PlatformType } from "../../global/types";
 import { addApp } from "../../api/api";
 import AppForm from "../../components/AppForm";
 
-type FormValuesType = {
-  name: string,
-  description: string,
-  platform: PlatformType,
-}
 
 const AddAppPage: React.FC = () => {
   const navigate = useNavigate();

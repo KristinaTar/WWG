@@ -1,13 +1,17 @@
 export const theme = {
   colors: {
     stroke: "#DFE4F2",
+    strokeActive: "#644DED",
     white: "#FFFFFF",
+    1: "#AD9FFF"
   },
   text: {
     dark: "#242533",
     grey: "#808192",
     1: "#484964",
     2: "#323240",
+    3: "#ABACBE",
+    4: "#BCBCC6"
   },
   zIndex: {},
   backgrounds: {

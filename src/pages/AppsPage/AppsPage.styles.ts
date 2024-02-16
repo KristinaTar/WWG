@@ -53,9 +53,38 @@ const AppsPageStyles = styled('div')`
     }
   }
   
+  .search{
+    
+    &-container {
+      display: block;
+      position: relative;
+    }
+    
+    &-icon {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      cursor: pointer;
+    }
+    
+    &-input {
+      min-height: 48px;
+      width: 312px;
+      border: 2px solid ${theme.colors.stroke};
+      border-radius: 16px;
+      padding-left: 16px;
+
+      &::placeholder {
+        color: ${theme.text[4]};
+        font-weight: 500;
+      }
+    }
+  }
+  
   .create-btn {
     padding: 10px 36px 10px 36px;
   }
+  
 `;
 
 export default AppsPageStyles;
