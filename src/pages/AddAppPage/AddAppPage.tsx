@@ -12,6 +12,7 @@ const AddAppPage: React.FC = () => {
   return (
     <MainLayout title="New App">
       <AppForm
+        create
         title="Create new App"
         initialValues={{
           name: '',

@@ -1,6 +1,7 @@
 import React from 'react';
 import InputStyles from "./Input.styles";
 import CloseIcon from '../../global/images/close-icon.svg';
+import { ErrorMessage } from "formik";
 
 type Props = {
   name: string,
@@ -31,6 +32,7 @@ const Input: React.FC<Props> = (
             src={CloseIcon}
             alt="clear text"
         />}
+        <div className="error-message"><ErrorMessage name={name} /></div>
       </div>
     </InputStyles>
   );

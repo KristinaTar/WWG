@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FileInputStyles from "./FileInput.styles";
 import ImageIcon from '../../global/images/image-icon.svg';
+import { ErrorMessage } from "formik";
 
 type Props = {
   name: string,
@@ -30,6 +31,7 @@ const FileInput: React.FC<Props> = (
           }}
         />
       </div>
+      <div className="error-message"><ErrorMessage name={name}/></div>
     </FileInputStyles>
   );
 }

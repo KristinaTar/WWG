@@ -8,6 +8,7 @@ export const theme = {
   text: {
     dark: "#242533",
     grey: "#808192",
+    error: "#e80000",
     1: "#484964",
     2: "#323240",
     3: "#ABACBE",

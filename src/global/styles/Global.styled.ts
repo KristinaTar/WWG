@@ -14,6 +14,19 @@ export const AppContainer = styled('div')`
     line-height: 17px;
     border-radius: 12px;
     cursor: pointer;
+    
+    &:disabled {
+      background-color: ${theme.text[4]};
+      cursor: no-drop;
+    }
+  }
+  
+  .error-message {
+    display: block;
+    font-size: 14px;
+    color: ${theme.text.error};
+    height: 0;
+    padding-left: 20px;
   }
 
 `;

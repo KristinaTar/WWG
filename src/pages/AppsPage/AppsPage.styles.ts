@@ -53,8 +53,13 @@ const AppsPageStyles = styled('div')`
     }
   }
   
+  .platform-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  
   .search{
-    
     &-container {
       display: block;
       position: relative;

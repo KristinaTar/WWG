@@ -6,6 +6,8 @@ import { AppData, UserData } from "../../global/types";
 import AppsPageStyles from "./AppsPage.styles";
 import { formatData } from "../../global/helpers/formatData";
 import SearchIcon from '../../global/images/SearchIcon.svg';
+import SortIcon from '../../global/images/SortIcon.svg';
+
 
 const AppsPage: React.FC = () => {
   const [apps, setApps] = useState<AppData[]>([]);
@@ -56,9 +58,11 @@ const AppsPage: React.FC = () => {
             <div>Name App</div>
             <div>Author</div>
             <div>Icon</div>
-            <div>Platform</div>
+            <div className="platform-container">
+             <div> Platform</div>
+              <img src={SortIcon} alt="sort icon"/>
+            </div>
             <div>Description</div>
-            <div>Time create</div>
           </div>
           {
             apps.map(app => (
