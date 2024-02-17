@@ -46,6 +46,7 @@ const AppsPageStyles = styled('div')`
         align-items: center;
         justify-content: center;
         height: 100%;
+        overflow-x: hidden;
         &:not(:last-of-type) {
           border-right: 1px solid ${theme.colors.stroke};
         }

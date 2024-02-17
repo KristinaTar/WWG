@@ -36,6 +36,11 @@ const InputSmall: React.FC<Props> = (
           className={`custom-input`}
           name={name}
           onChange={onChange}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+            }
+          }}
           onBlur={onBlur}
           value={value}
         />
@@ -45,7 +50,7 @@ const InputSmall: React.FC<Props> = (
             src={showPassword ? EyeClosed : EyeOpened}
             alt="clear text"
         />}
-        <div className="error-message"><ErrorMessage name={name} /></div>
+        <div className="error-message"><ErrorMessage name={name}/></div>
       </div>
     </InputSmallStyles>
   );

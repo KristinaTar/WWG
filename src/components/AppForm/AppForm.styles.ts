@@ -31,6 +31,10 @@ const AppFormStyles = styled.div<{ create?: boolean; }>`
       column-gap: 40px;
       row-gap: 28px;
       margin-bottom: 28px;
+      
+      @media screen and (max-width: 700px){
+        grid-template-columns: 1fr;
+      }
     }
   }
   

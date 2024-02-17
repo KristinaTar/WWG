@@ -3,42 +3,53 @@ import { Link, useNavigate } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
 
 import AuthLayout from "../../components/AuthLayout";
-import LoginStyles from "./Login.styles";
+import RegistrationStyles from "./Registration.styles";
 import InputSmall from "../../components/InputSmall";
-import { getErrorsObject, login } from "../../api/api";
+import { getErrorsObject, register } from "../../api/api";
 
-const Login: React.FC = () => {
+const Registration: React.FC = () => {
   const navigate = useNavigate();
-  const [loginError, setLoginError] = useState('');
+  const [registerError, setRegisterError] = useState('');
 
   return (
-    <AuthLayout title="Log in">
-      <LoginStyles>
+    <AuthLayout title="Registration">
+      <RegistrationStyles>
         <Formik
           initialValues={{
             username: '',
             password: '',
+            confirm_password: '',
           }}
           validate={values => {
             const errors: {
               username?: string,
               password?: string,
+              confirm_password?: string,
             } = {};
 
             if (!values.username) errors.username = 'Required';
             if (!values.password) errors.password = 'Required';
+            if (!values.confirm_password) errors.confirm_password = 'Required';
 
             return errors;
           }}
           onSubmit={async (values, { setErrors }) => {
+            if (values.password !== values.confirm_password) {
+              setErrors({
+                password: 'Passwords must match',
+                confirm_password: 'Passwords must match',
+              });
+              return;
+            }
+
             try {
-              await login(values.username, values.password);
+              await register(values.username, values.password);
               navigate('/');
             } catch (error: any) {
               const errors = getErrorsObject(error);
               setErrors(errors);
               const errorMessage = error.response.data.detail;
-              setLoginError(errorMessage);
+              setRegisterError(errorMessage);
             }
           }}
         >
@@ -53,7 +64,6 @@ const Login: React.FC = () => {
             }) => (
             <Form onSubmit={handleSubmit} className="form">
               <Field
-                tabIndex={1}
                 name="username"
                 label="User Name"
                 as={InputSmall}
@@ -62,47 +72,49 @@ const Login: React.FC = () => {
                 value={values.username}
                 clear={() => setFieldValue('username', '')}
               />
+              <Field
+                name="password"
+                label="Password"
+                type="password"
+                as={InputSmall}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                clear={() => setFieldValue('password', '')}
+              />
               <div>
                 <Field
-                  tabIndex={2}
-                  name="password"
-                  label="Password"
+                  name="confirm_password"
+                  label="Confirm password"
                   type="password"
                   as={InputSmall}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.password}
-                  clear={() => setFieldValue('password', '')}
+                  value={values.confirm_password}
+                  clear={() => setFieldValue('confirm_password', '')}
                 />
                 <div className="signup-container">
-                  Don't have account? <Link className="link" to="/signup" tabIndex={0}>Sign up</Link>
+                  If you have account <Link className="link" to="/login" tabIndex={-1}>Log in</Link>
                 </div>
               </div>
               <div>
                 <div className="button-container">
                   <button
-                    className="cancel-btn"
-                    onClick={() => navigate('/signup')}
-                  >
-                    Cancel
-                  </button>
-                  <button
                     type="submit"
                     disabled={isSubmitting || Object.keys(errors).length > 0}
                     className="btn save-btn"
-                    tabIndex={3}
                   >
-                    Save
+                    Send
                   </button>
                 </div>
-                {loginError && <div className="error-message text-center auto-height">{loginError}</div>}
+                {registerError && <div className="error-message text-center auto-height">{registerError}</div>}
               </div>
             </Form>
           )}
         </Formik>
-      </LoginStyles>
+      </RegistrationStyles>
     </AuthLayout>
   );
 }
 
-export default Login;
+export default Registration;

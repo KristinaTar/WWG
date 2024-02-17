@@ -14,6 +14,15 @@ export async function login(username: string, password: string) {
   setTokens(username, tokens);
 }
 
+export async function register(username: string, password: string) {
+  await axios.post(
+    BASE_URL + 'auth/users/',
+    { username, password }
+  );
+
+  await login(username, password);
+}
+
 const authorizedRequests = axios.create({
   baseURL: BASE_URL,
 });
@@ -105,4 +114,19 @@ export async function editApp(
   }
 
   await authorizedRequests.patch(`apps/${appId}/`, data);
+}
+
+type ErrorResponse = {
+  response: {
+    data: { [key: string]: string[] }
+  }
+};
+
+export function getErrorsObject(errorData: ErrorResponse) {
+  const res: { [key: string]: string } = {};
+  for (const key in errorData.response.data) {
+    res[key] = errorData.response.data[key][0];
+  }
+
+  return res;
 }

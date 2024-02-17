@@ -47,7 +47,7 @@ const AppsPage: React.FC = () => {
           >Create App
           </button>
           <div className="search-container">
-            <input type="search" placeholder="Search App" className="search-input"/>
+            <input type="input" placeholder="Search App" className="search-input"/>
             <img src={SearchIcon} alt="search icon" className="search-icon"/>
           </div>
         </div>

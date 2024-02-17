@@ -6,6 +6,7 @@ import RequireAuth from "./components/RequireAuth";
 import AddAppPage from "./pages/AddAppPage";
 import EditAppPage from "./pages/EditAppPage";
 import { AppContainer } from "./global/styles/Global.styled";
+import Registration from "./pages/Registration";
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<RequireAuth><AppsPage/></RequireAuth>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<Registration/>}/>
         <Route path="/add" element={<RequireAuth><AddAppPage/></RequireAuth>}/>
-        {/*todo ID*/}
         <Route path="/edit/:appId" element={<RequireAuth><EditAppPage/></RequireAuth>}/>
       </Routes>
     </AppContainer>

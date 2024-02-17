@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import MainLayout from "../../components/MainLayout";
-import { addApp, editApp, getApp, getUserData } from "../../api/api";
+import { addApp, editApp, getApp, getErrorsObject, getUserData } from "../../api/api";
 import { AppData, PlatformType } from "../../global/types";
 import { Field, Formik } from "formik";
 import AppForm from "../../components/AppForm";
@@ -37,13 +37,19 @@ const EditAppPage: React.FC = () => {
             platform: appData.platform as PlatformType,
             icon: '',
           }}
-          onSubmit = {async (values, { setSubmitting }) => {
-            await editApp(
-              Number(appId),
-              values,
-            );
+          onSubmit = {async (values, { setSubmitting, setErrors }) => {
+            try {
+              await editApp(
+                Number(appId),
+                values,
+              );
+              navigate('/');
+            } catch(error: any) {
+              const errors = getErrorsObject(error);
+              console.log({errors})
+              setErrors(errors);
+            }
             setSubmitting(false);
-            navigate('/');
           }}
       />}
     </MainLayout>
