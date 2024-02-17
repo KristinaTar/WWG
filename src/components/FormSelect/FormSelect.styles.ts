@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import theme from "../../global/styles/theme";
+import { InputStyle } from "../../global/types";
 
-const FormSelectStyles = styled.label<{ dark?: boolean; }>`
+const FormSelectStyles = styled.label<{ $inputstyle: InputStyle; }>`
   .form-select{
     &__single-value {
       color: ${theme.text.dark};
@@ -49,7 +50,7 @@ const FormSelectStyles = styled.label<{ dark?: boolean; }>`
     }
     
     &__control {
-      background-color: ${({dark}) => dark ? theme.colors.stroke : theme.colors.white};
+      background-color: ${({$inputstyle}) => $inputstyle === InputStyle.dark ? theme.colors.stroke : theme.colors.white};
       min-height: 64px;
       width: 100%;
       border: 1px solid ${theme.colors.stroke};

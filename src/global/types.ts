@@ -28,6 +28,6 @@ export enum PlatformType {
 }
 
 export enum InputStyle {
-  light,
-  dark,
+  light = 'light',
+  dark = 'dark',
 }

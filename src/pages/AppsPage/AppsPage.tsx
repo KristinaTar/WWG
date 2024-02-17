@@ -66,6 +66,7 @@ const AppsPage: React.FC = () => {
           {
             apps.map(app => (
               <div
+                key={`app-${app.id}`}
                 className="apps-table-row"
                 onClick={() => navigate(`edit/${app.id}`)}
               >

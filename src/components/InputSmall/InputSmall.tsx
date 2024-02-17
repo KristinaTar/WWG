@@ -43,6 +43,7 @@ const InputSmall: React.FC<Props> = (
           }}
           onBlur={onBlur}
           value={value}
+          autoComplete="off"
         />
         {type === "password" && <img
             className="show-button"

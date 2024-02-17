@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from "../../global/styles/theme";
 
 
-const AppFormStyles = styled.div<{ create?: boolean; }>`
+const AppFormStyles = styled.div`
   .form {
     &-title {
       min-height: 67px;

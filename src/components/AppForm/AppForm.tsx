@@ -35,7 +35,7 @@ const AppForm: React.FC<Props> = (
   const navigate = useNavigate();
 
   return (
-    <AppFormStyles create={create}>
+    <AppFormStyles>
       <div className="form-title">{title || initialValues.name}</div>
       <Formik
         initialValues={initialValues}

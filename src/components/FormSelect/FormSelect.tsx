@@ -26,7 +26,7 @@ const FormSelect: React.FC<Props> = (
   const formik = useFormikContext<FormValues>();
 
   return (
-    <FormSelectStyles dark={style === InputStyle.dark}>
+    <FormSelectStyles $inputstyle={InputStyle.dark}>
       <span className="input-label">{label}</span>
       <Select
         placeholder="Select element"
