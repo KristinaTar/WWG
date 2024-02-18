@@ -33,7 +33,7 @@ const AppsPage: React.FC = () => {
       .catch(() => {
         navigate('/login');
       });
-  }, []);
+  }, [navigate]);
 
   return (
     <MainLayout>

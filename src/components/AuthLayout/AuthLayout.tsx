@@ -19,7 +19,7 @@ const AuthLayout: React.FC<Props> = ({ children, title }) => {
           </div>
         </div>
       </div>
-      <img src={MainImage} alt="abstraction image" className="img"/>
+      <img src={MainImage} alt="abstraction" className="img"/>
     </AuthLayoutStyles>
   );
 }

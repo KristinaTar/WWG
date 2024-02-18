@@ -25,7 +25,7 @@ const EditAppPage: React.FC = () => {
     }
 
     getData().catch(() => navigate('/'));
-  }, []);
+  }, [appId, navigate]);
 
   return (
     <MainLayout title="Edit">

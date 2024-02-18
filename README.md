@@ -1,21 +1,20 @@
 # RUNNING LOCALLY
 
-run npm install
-run npm start
+-run `npm install`
+-run `npm start`
 
-## LIBRARY USAGE
+# LIBRARY USAGE
 
-React,
-TypeScript, 
-axios, 
-Styled Components, 
-React Select, 
-Formik
+- React
+- TypeScript
+- axios
+- Styled Components
+- React Select
+- Formik
 
-### Responsive
+# RESPONSIVE
 
-This app is mostly responsive, except page with the main table.
-There was no design for it and it will take time to create a new
+This app is mostly responsive, except page with the main table. <br> There was no design for it and it will take time to create a new
 layout for the mobile version
 
 

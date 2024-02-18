@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ErrorMessage, useFormikContext } from "formik";
 import Select, { components, OptionProps } from 'react-select';
 import FormSelectStyles from "./FormSelect.styles";
@@ -21,7 +21,7 @@ const options = [
 const FormSelect: React.FC<Props> = (
   { name, label, setValue, style = InputStyle.light }
 ) => {
-  const [fileName, setFilename] = useState("Upload image");
+
   const formik = useFormikContext<FormValues>();
 
   return (

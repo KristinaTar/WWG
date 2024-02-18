@@ -17,7 +17,7 @@ const FileInput: React.FC<Props> = (
       <span className="input-label">{label}</span>
       <div className="input-container">
         <img
-          alt="select image"
+          alt="select"
           src={ImageIcon}
         />
         <div className="file-name">{fileName}</div>
