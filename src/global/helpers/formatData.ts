@@ -21,7 +21,6 @@ export function convertImageToBase64(file: File) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
 
-    // Once file is loaded, convert it to base64 string
     reader.onload = () => {
       resolve(reader.result);
     };
