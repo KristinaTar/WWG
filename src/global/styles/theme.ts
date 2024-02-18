@@ -17,7 +17,6 @@ export const theme = {
     3: "#ABACBE",
     4: "#BCBCC6"
   },
-  zIndex: {},
   backgrounds: {
     primary: '#F9F9FC',
     1: '#EFEFF5',
@@ -25,7 +24,6 @@ export const theme = {
     3: "#644DED",
     4: "#4731cb",
   },
-  gradients: {},
 };
 
 export default theme;

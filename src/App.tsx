@@ -17,6 +17,7 @@ function App() {
         <Route path="/signup" element={<Registration/>}/>
         <Route path="/add" element={<RequireAuth><AddAppPage/></RequireAuth>}/>
         <Route path="/edit/:appId" element={<RequireAuth><EditAppPage/></RequireAuth>}/>
+        <Route path="*" element={<Login/>}/>
       </Routes>
     </AppContainer>
 

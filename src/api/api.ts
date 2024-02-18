@@ -61,7 +61,6 @@ authorizedRequests.interceptors.response.use(
         return axios(originalRequest);
       } catch (error) {
         console.log(error);
-        // todo redirect to login
       }
     }
 

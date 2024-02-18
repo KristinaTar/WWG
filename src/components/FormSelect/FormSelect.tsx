@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ErrorMessage, useFormikContext } from "formik";
-import Select, { components, DropdownIndicatorProps, OptionProps } from 'react-select';
-
+import Select, { components, OptionProps } from 'react-select';
 import FormSelectStyles from "./FormSelect.styles";
 import { InputStyle, PlatformType } from "../../global/types";
 import { FormValues } from "../AppForm/AppForm";
